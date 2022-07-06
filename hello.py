@@ -7,9 +7,12 @@ moje_imie = 'Natalia'
 def hello_world():
     return 'Hello, World ' + moje_imie + ' !'
 
-@app.route('/kto')
+@app.route('/kto', methods=["POST"])
 def kto():
-    return moje_imie
+    if request.method == 'POST':
+        fname = request.form["fname"]
+        lname = request.form["lnamec"]
+    return 'Hello, World ' + fname + lname +'!'
 
 
 @app.route('/wiadomosc')
